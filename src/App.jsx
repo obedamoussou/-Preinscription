@@ -2,7 +2,8 @@ import { useState } from "react";
 import { PopupModal } from "react-calendly";
 
 export default function FormPage() {
-  const [form, setForm] = useState({
+
+  const initialForm = {
     prenom: "",
     nom: "",
     whatsapp: "",
@@ -13,7 +14,8 @@ export default function FormPage() {
     creneau: "",
     pays: "",
     codePromo: "",
-  });
+  };
+  const [form, setForm] = useState(initialForm);
 
   const [loading, setLoading] = useState(false);
   // const [showModal, setShowModal] = useState(false);
@@ -55,18 +57,7 @@ export default function FormPage() {
     });
 
     // reset form
-    setForm({
-      prenom: "",
-      nom: "",
-      whatsapp: "",
-      email: "",
-      langue: "",
-      profil: "",
-      motivation: [],
-      creneau: "",
-      pays: "",
-      codePromo: "",
-    });
+    setForm(initialForm);
   };
 
   return (
@@ -271,7 +262,7 @@ export default function FormPage() {
       {/* MODAL */}
       <PopupModal
         url={`https://calendly.com/obedchrisnelamoussou/echange?name=${form.prenom}%20${form.nom}&email=${form.email}`}
-        onModalClose={() => setOpenCalendly(false)}
+        onModalClose={() => {setOpenCalendly(false); setForm(initialForm)}}
         open={openCalendly}
         rootElement={document.getElementById("root")}
       />
