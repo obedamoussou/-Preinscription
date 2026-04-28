@@ -16,7 +16,7 @@ export default function FormPage() {
   });
 
   const [loading, setLoading] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [openCalendly, setOpenCalendly] = useState(false);
 
   const handleChange = (e) => {
@@ -46,7 +46,7 @@ export default function FormPage() {
     );
 
     setLoading(false);
-    setShowModal(true);
+    // setShowModal(true);
     setOpenCalendly(true);
 
     //CALENDLY
